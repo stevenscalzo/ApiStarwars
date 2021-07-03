@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Film>
+<title>
+The Empire Strikes Back
+</title>
+<episode_id>
+5
+</episode_id>
+<opening_crawl>
+It is a dark time for the
+Rebellion. Although the Death
+Star has been destroyed,
+Imperial troops have driven the
+Rebel forces from their hidden
+base and pursued them across
+the galaxy.
+
+Evading the dreaded Imperial
+Starfleet, a group of freedom
+fighters led by Luke Skywalker
+has established a new secret
+base on the remote ice world
+of Hoth.
+
+The evil lord Darth Vader,
+obsessed with finding young
+Skywalker, has dispatched
+thousands of remote probes into
+the far reaches of space....
+</opening_crawl>
+<director>
+Irvin Kershner
+</director>
+<producer>
+Gary Kurtz, Rick McCallum
+</producer>
+<release_date>
+null
+</release_date>
+<characters>
+http://swapi.dev/api/people/1/
+</characters>
+<characters>
+http://swapi.dev/api/people/2/
+</characters>
+<characters>
+http://swapi.dev/api/people/3/
+</characters>
+<characters>
+http://swapi.dev/api/people/4/
+</characters>
+<characters>
+http://swapi.dev/api/people/5/
+</characters>
+<characters>
+http://swapi.dev/api/people/10/
+</characters>
+<characters>
+http://swapi.dev/api/people/13/
+</characters>
+<characters>
+http://swapi.dev/api/people/14/
+</characters>
+<characters>
+http://swapi.dev/api/people/18/
+</characters>
+<characters>
+http://swapi.dev/api/people/20/
+</characters>
+<characters>
+http://swapi.dev/api/people/21/
+</characters>
+<characters>
+http://swapi.dev/api/people/22/
+</characters>
+<characters>
+http://swapi.dev/api/people/23/
+</characters>
+<characters>
+http://swapi.dev/api/people/24/
+</characters>
+<characters>
+http://swapi.dev/api/people/25/
+</characters>
+<characters>
+http://swapi.dev/api/people/26/
+</characters>
+<planets>
+http://swapi.dev/api/planets/4/
+</planets>
+<planets>
+http://swapi.dev/api/planets/5/
+</planets>
+<planets>
+http://swapi.dev/api/planets/6/
+</planets>
+<planets>
+http://swapi.dev/api/planets/27/
+</planets>
+<starships>
+http://swapi.dev/api/starships/3/
+</starships>
+<starships>
+http://swapi.dev/api/starships/10/
+</starships>
+<starships>
+http://swapi.dev/api/starships/11/
+</starships>
+<starships>
+http://swapi.dev/api/starships/12/
+</starships>
+<starships>
+http://swapi.dev/api/starships/15/
+</starships>
+<starships>
+http://swapi.dev/api/starships/17/
+</starships>
+<starships>
+http://swapi.dev/api/starships/21/
+</starships>
+<starships>
+http://swapi.dev/api/starships/22/
+</starships>
+<starships>
+http://swapi.dev/api/starships/23/
+</starships>
+<vehicles>
+http://swapi.dev/api/vehicles/8/
+</vehicles>
+<vehicles>
+http://swapi.dev/api/vehicles/14/
+</vehicles>
+<vehicles>
+http://swapi.dev/api/vehicles/16/
+</vehicles>
+<vehicles>
+http://swapi.dev/api/vehicles/18/
+</vehicles>
+<vehicles>
+http://swapi.dev/api/vehicles/19/
+</vehicles>
+<vehicles>
+http://swapi.dev/api/vehicles/20/
+</vehicles>
+<species>
+http://swapi.dev/api/species/1/
+</species>
+<species>
+http://swapi.dev/api/species/2/
+</species>
+<species>
+http://swapi.dev/api/species/3/
+</species>
+<species>
+http://swapi.dev/api/species/6/
+</species>
+<species>
+http://swapi.dev/api/species/7/
+</species>
+<created>
+2014-12-12T11:26:24.656000Z
+</created>
+<edited>
+2014-12-15T13:07:53.386000Z
+</edited>
+<url>
+http://swapi.dev/api/films/2/
+</url>
+</Film>
+

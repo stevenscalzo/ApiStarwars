@@ -1,0 +1,247 @@
+<form class="form-group container" [formGroup]="starWarsForm">
+  <h3 class="title">Gestion de Datos de StarWars</h3>
+  <div class="row">
+    <div class="col-sm">
+      <label for="table">Tabla</label>
+      <select id=table formControlName="table" class="custom-select">
+        <option value="films">Films</option>
+        <option value="people">People</option>
+        <option value="planets">Planets</option>
+      </select>
+    </div>
+    <div class="col-sm">
+      <label for="operation">Operacion</label>
+      <select (change)="validateRequiredId()" id="operation" formControlName="operation" class="custom-select">
+        <option value="1">Search all</option>
+        <option value="2">Search by id</option>
+        <option value="3">Create</option>
+        <option value="4">Update</option>
+        <option value="5">Delete</option>
+      </select>
+    </div>
+    <div class="col-sm" *ngIf="isIdRequired()">
+      <label class="label" for="id-input">ID</label>
+      <input class="input" formControlName="id" placeholder="ID" id="id-input">
+    </div>
+    <div class="col-sm">
+      <button class="button" [disabled]="starWarsForm.invalid" (click)="submit()">Submit</button>
+    </div>
+  </div>
+
+  <div *ngIf="isFilmObjectRequired()" class="object-container">
+    <div>
+      <label class="label object-field" for="title-input">Title</label>
+      <input class="input" placeholder="Title" id="title-input" #title (keyup)="onKeyTitle(title.value)">
+    </div>
+    <div>
+      <label class="label object-field" for="episode-input">Episode Id</label>
+      <input class="input" placeholder="Episode Id" id="episode-input" #episode (keyup)="onKeyEpisodeId(episode.value)">
+    </div>
+    <div>
+      <label class="label object-field" for="crawl-input">Opening Crawl</label>
+      <input class="input" placeholder="Opening Crawl" id="crawl-input" #crawl (keyup)="onKeyOpeningCrawl(crawl.value)">
+    </div>
+    <div>
+      <label class="label object-field" for="director-input">Director</label>
+      <input class="input" placeholder="Director" id="director-input" #director (keyup)="onKeyDirector(director.value)">
+    </div>
+    <div>
+      <label class="label object-field" for="producer-input">Producer</label>
+      <input class="input" placeholder="Producer" id="producer-input" #producer (keyup)="onKeyProducer(producer.value)">
+    </div>
+    <div>
+      <label class="label object-field" for="date-input">Release Date</label>
+      <input class="input" placeholder="Release Date" id="date-input" #date (keyup)="onKeyReleaseDate(date.value)">
+    </div>
+
+  </div>
+
+  <div *ngIf="isPeopleObjectRequired()" class="object-container">
+    <div>
+      <label class="label object-field" for="name-input">name</label>
+      <input class="input" placeholder="name" id="name-input" #name (keyup)="onKeyPeopleName(name.value)">
+    </div>
+    <div>
+      <label class="label object-field" for="birthYear-input">birthYear</label>
+      <input class="input" placeholder="birthYear" id="birthYear-input" #birthYear
+             (keyup)="onKeyPeopleDOB(birthYear.value)">
+    </div>
+    <div>
+      <label class="label object-field" for="eyeColor-input">eyeColor</label>
+      <input class="input" placeholder="eyeColor" id="eyeColor-input" #eyeColor
+             (keyup)="onKeyPeopleEyeColor(eyeColor.value)">
+    </div>
+    <div>
+      <label class="label object-field" for="gender-input">gender</label>
+      <input class="input" placeholder="gender" id="gender-input" #gender (keyup)="onKeyPeopleGender(gender.value)">
+    </div>
+    <div>
+      <label class="label object-field" for="hairColor-input">hairColor</label>
+      <input class="input" placeholder="hairColor" id="hairColor-input" #hairColor
+             (keyup)="onKeyPeopleHairColor(hairColor.value)">
+    </div>
+    <div>
+      <label class="label object-field" for="height-input">height</label>
+      <input class="input" placeholder="height" id="height-input" #height (keyup)="onKeyPeopleHeight(height.value)">
+    </div>
+    <div>
+      <label class="label object-field" for="mass-input">mass</label>
+      <input class="input" placeholder="mass" id="mass-input" #mass (keyup)="onKeyPeopleMass(mass.value)">
+    </div>
+    <div>
+      <label class="label object-field" for="skinColor-input">skinColor</label>
+      <input class="input" placeholder="skinColor" id="skinColor-input" #skinColor
+             (keyup)="onKeyPeopleSkinColor(skinColor.value)">
+    </div>
+
+  </div>
+
+  <div *ngIf="isPlanetObjectRequired()" class="object-container">
+    <div>
+      <label class="label object-field" for="planet-name-input">name</label>
+      <input class="input" placeholder="name" id="planet-name-input" #planetName
+             (keyup)="onKeyPlanetName(planetName.value)">
+    </div>
+    <div>
+      <label class="label object-field" for="diameter-input">diameter</label>
+      <input class="input" placeholder="diameter" id="diameter-input" #diameter
+             (keyup)="onKeyPlanetDiameter(diameter.value)">
+    </div>
+    <div>
+      <label class="label object-field" for="rotationPeriod-input">rotationPeriod</label>
+      <input class="input" placeholder="rotationPeriod" id="rotationPeriod-input" #rotationPeriod
+             (keyup)="onKeyRotationPeriod(rotationPeriod.value)">
+    </div>
+    <div>
+      <label class="label object-field" for="orbitalPeriod-input">orbitalPeriod</label>
+      <input class="input" placeholder="orbitalPeriod" id="orbitalPeriod-input" #orbitalPeriod
+             (keyup)="onKeyOrbitalPeriod(orbitalPeriod.value)">
+    </div>
+    <div>
+      <label class="label object-field" for="gravity-input">gravity</label>
+      <input class="input" placeholder="gravity" id="gravity-input" #gravity
+             (keyup)="onKeyGravity(gravity.value)">
+    </div>
+    <div>
+      <label class="label object-field" for="population-input">population</label>
+      <input class="input" placeholder="population" id="population-input" #population
+             (keyup)="onKeyPopulation(population.value)">
+    </div>
+    <div>
+      <label class="label object-field" for="climate-input">climate</label>
+      <input class="input" placeholder="climate" id="climate-input" #climate (keyup)="onKeyClimate(climate.value)">
+    </div>
+    <div>
+      <label class="label object-field" for="terrain-input">terrain</label>
+      <input class="input" placeholder="terrain" id="terrain-input" #terrain
+             (keyup)="onKeyTerrain(terrain.value)">
+    </div>
+    <div>
+      <label class="label object-field" for="surfaceWater-input">surfaceWater</label>
+      <input class="input" placeholder="surfaceWater" id="surfaceWater-input" #surfaceWater
+             (keyup)="onKeySurfaceWater(surfaceWater.value)">
+    </div>
+
+  </div>
+
+  <p class="mt-5" *ngIf="respuesta.mensaje!==''"> {{respuesta.mensaje | json}}</p>
+
+  <table *ngIf="films.length>0 && films[0]?.episodeId" class="mt-5 table table-striped">
+    <thead>
+    <tr>
+      <th>title</th>
+      <th>episodeId</th>
+      <th>openingCrawl</th>
+      <th>director</th>
+      <th>producer</th>
+      <th>releaseDate</th>
+      <th>codigo</th>
+      <th>created</th>
+      <th>edited</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let film of films">
+      <td>{{ film.title }}</td>
+      <td>{{ film.episodeId }}</td>
+      <td>{{ film.openingCrawl | slice:0:100 }} ...</td>
+      <td>{{ film.director }}</td>
+      <td>{{ film.producer }}</td>
+      <td>{{ film.releaseDate }}</td>
+      <td>{{ film.codigo }}</td>
+      <td>{{ film.created }}</td>
+      <td>{{ film.edited }}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <table *ngIf="peoples.length>0 && peoples[0]?.codigo" class="mt-5 table table-striped">
+    <thead>
+    <tr>
+      <th>name</th>
+      <th>birthYear</th>
+      <th>eyeColor</th>
+      <th>gender</th>
+      <th>hairColor</th>
+      <th>height</th>
+      <th>mass</th>
+      <th>skinColor</th>
+      <th>codigo</th>
+      <th>created</th>
+      <th>edited</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let people of peoples">
+      <td>{{ people.name }}</td>
+      <td>{{ people.birthYear }}</td>
+      <td>{{ people.eyeColor }}</td>
+      <td>{{ people.gender }}</td>
+      <td>{{ people.hairColor }}</td>
+      <td>{{ people.height }}</td>
+      <td>{{ people.mass }}</td>
+      <td>{{ people.skinColor }}</td>
+      <td>{{ people.codigo }}</td>
+      <td>{{ people.created }}</td>
+      <td>{{ people.edited }}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <table *ngIf="planets.length>0 && planets[0]?.codigo" class="mt-5 table table-striped">
+    <thead>
+    <tr>
+      <th>name</th>
+      <th>diameter</th>
+      <th>rotationPeriod</th>
+      <th>orbitalPeriod</th>
+      <th>gravity</th>
+      <th>population</th>
+      <th>climate</th>
+      <th>terrain</th>
+      <th>surfaceWater</th>
+      <th>codigo</th>
+      <th>created</th>
+      <th>edited</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let planet of planets">
+      <td>{{ planet.name }}</td>
+      <td>{{ planet.diameter }}</td>
+      <td>{{ planet.rotationPeriod }}</td>
+      <td>{{ planet.orbitalPeriod }}</td>
+      <td>{{ planet.gravity }}</td>
+      <td>{{ planet.population }}</td>
+      <td>{{ planet.climate }}</td>
+      <td>{{ planet.terrain }}</td>
+      <td>{{ planet.surfaceWater }}</td>
+      <td>{{ planet.codigo }}</td>
+      <td>{{ planet.created }}</td>
+      <td>{{ planet.edited }}</td>
+    </tr>
+    </tbody>
+  </table>
+
+</form>
+

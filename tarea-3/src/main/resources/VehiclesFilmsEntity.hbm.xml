@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.profesor.gestiondeStarwars.hibernate.VehiclesFilmsEntity" table="vehicles_films" schema="public"
+           catalog="starwars">
+        <composite-id mapped="true" class="com.profesor.gestiondeStarwars.hibernate.VehiclesFilmsEntityPK">
+            <key-property name="codigoVehicle">
+                <column name="codigo_vehicle" sql-type="integer"/>
+            </key-property>
+            <key-property name="codigoFilm">
+                <column name="codigo_film" sql-type="integer"/>
+            </key-property>
+        </composite-id>
+        <many-to-one name="vehiclesByCodigoVehicle" class="com.profesor.gestiondeStarwars.hibernate.VehiclesEntity">
+            <column name="codigo_vehicle"/>
+        </many-to-one>
+        <many-to-one name="filmsByCodigoFilm" class="com.profesor.gestiondeStarwars.hibernate.FilmsEntity">
+            <column name="codigo_film"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

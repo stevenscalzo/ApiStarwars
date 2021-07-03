@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.profesor.gestiondeStarwars.hibernate.FilmsEntity" table="films" schema="public"
+           catalog="starwars">
+        <id name="codigo">
+            <column name="codigo" sql-type="integer"/>
+        </id>
+        <property name="title">
+            <column name="title" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <property name="episodeId">
+            <column name="episode_id" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <property name="openingCrawl">
+            <column name="opening_crawl" sql-type="varchar(10485760)" length="10485760" not-null="true"/>
+        </property>
+        <property name="director">
+            <column name="director" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <property name="producer">
+            <column name="producer" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <property name="releaseDate">
+            <column name="release_date" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <property name="created">
+            <column name="created" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <property name="edited">
+            <column name="edited" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <set name="filmsPeopleByCodigo" inverse="true">
+            <key>
+                <column name="codigo_film"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.profesor.gestiondeStarwars.hibernate.FilmsPeopleEntity"/>
+        </set>
+        <set name="filmsPlanetsByCodigo" inverse="true">
+            <key>
+                <column name="codigo_film"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.profesor.gestiondeStarwars.hibernate.FilmsPlanetsEntity"/>
+        </set>
+        <set name="starshipsFilmsByCodigo" inverse="true">
+            <key>
+                <column name="codigo_film"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.profesor.gestiondeStarwars.hibernate.StarshipsFilmsEntity"/>
+        </set>
+        <set name="vehiclesFilmsByCodigo" inverse="true">
+            <key>
+                <column name="codigo_film"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.profesor.gestiondeStarwars.hibernate.VehiclesFilmsEntity"/>
+        </set>
+    </class>
+</hibernate-mapping>

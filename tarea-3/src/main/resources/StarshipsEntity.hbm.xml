@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.profesor.gestiondeStarwars.hibernate.StarshipsEntity" table="starships" schema="public"
+           catalog="starwars">
+        <id name="codigo">
+            <column name="codigo" sql-type="integer"/>
+        </id>
+        <property name="name">
+            <column name="name" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <property name="model">
+            <column name="model" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <property name="starshipClass">
+            <column name="starship_class" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <property name="manufacturer">
+            <column name="manufacturer" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <property name="costInCredits">
+            <column name="cost_in_credits" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <property name="length">
+            <column name="length" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <property name="crew">
+            <column name="crew" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <property name="passengers">
+            <column name="passengers" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <property name="maxAtmospheringSpeed">
+            <column name="max_atmosphering_speed" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <property name="hyperdriveRating">
+            <column name="hyperdrive_rating" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <property name="mglt">
+            <column name="mglt" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <property name="cargoCapacity">
+            <column name="cargo_capacity" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <property name="consumables">
+            <column name="consumables" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <property name="created">
+            <column name="created" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <property name="edited">
+            <column name="edited" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <set name="starshipsFilmsByCodigo" inverse="true">
+            <key>
+                <column name="codigo_starship"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.profesor.gestiondeStarwars.hibernate.StarshipsFilmsEntity"/>
+        </set>
+        <set name="starshipsPeopleByCodigo" inverse="true">
+            <key>
+                <column name="codigo_starship"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.profesor.gestiondeStarwars.hibernate.StarshipsPeopleEntity"/>
+        </set>
+    </class>
+</hibernate-mapping>

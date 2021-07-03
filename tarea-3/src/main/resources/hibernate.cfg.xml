@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="connection.url">jdbc:postgresql://localhost:5432/starwars</property>
+    <property name="connection.driver_class">org.postgresql.Driver</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+    <property name="connection.username">postgres</property>
+    <property name="connection.password">admin</property>
+    <mapping class="com.profesor.gestiondeStarwars.hibernate.FilmsEntity"/>
+    <mapping class="com.profesor.gestiondeStarwars.hibernate.FilmsPeopleEntity"/>
+    <mapping class="com.profesor.gestiondeStarwars.hibernate.FilmsPlanetsEntity"/>
+    <mapping class="com.profesor.gestiondeStarwars.hibernate.PeopleEntity"/>
+    <mapping class="com.profesor.gestiondeStarwars.hibernate.PlanetsEntity"/>
+    <mapping class="com.profesor.gestiondeStarwars.hibernate.SpeciesEntity"/>
+    <mapping class="com.profesor.gestiondeStarwars.hibernate.SpeciesPeopleEntity"/>
+    <mapping class="com.profesor.gestiondeStarwars.hibernate.StarshipsEntity"/>
+    <mapping class="com.profesor.gestiondeStarwars.hibernate.StarshipsFilmsEntity"/>
+    <mapping class="com.profesor.gestiondeStarwars.hibernate.StarshipsPeopleEntity"/>
+    <mapping class="com.profesor.gestiondeStarwars.hibernate.VehiclesEntity"/>
+    <mapping class="com.profesor.gestiondeStarwars.hibernate.VehiclesFilmsEntity"/>
+    <mapping class="com.profesor.gestiondeStarwars.hibernate.VehiclesPeopleEntity"/>
+  </session-factory>
+</hibernate-configuration>

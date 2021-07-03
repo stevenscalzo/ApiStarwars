@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.profesor.gestiondeStarwars.hibernate.StarshipsPeopleEntity" table="starships_people"
+           schema="public" catalog="starwars">
+        <composite-id mapped="true" class="com.profesor.gestiondeStarwars.hibernate.StarshipsPeopleEntityPK">
+            <key-property name="codigoStarship">
+                <column name="codigo_starship" sql-type="integer"/>
+            </key-property>
+            <key-property name="codigoPeople">
+                <column name="codigo_people" sql-type="integer"/>
+            </key-property>
+        </composite-id>
+        <many-to-one name="starshipsByCodigoStarship" class="com.profesor.gestiondeStarwars.hibernate.StarshipsEntity">
+            <column name="codigo_starship"/>
+        </many-to-one>
+        <many-to-one name="peopleByCodigoPeople" class="com.profesor.gestiondeStarwars.hibernate.PeopleEntity">
+            <column name="codigo_people"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>
